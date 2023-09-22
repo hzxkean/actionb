@@ -28,5 +28,10 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          curl -LO https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl-shared.zip
-          
+          if [[ -f "ffmpeg-master-latest-win64-gpl-shared.zip"]];then
+            echo "file is exists"
+          else
+            curl -LO https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl-shared.zip
+          fi
+          mkdir ffmpeg
+          mv ffmpeg-master-latest-win64-gpl-shared.zip ffmpeg
